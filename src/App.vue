@@ -27,4 +27,11 @@
     padding: 0;
     margin: 0;
   }
+  .show-img{
+    height: 26vh;
+  }
+  .show-img>img{
+    width: 100%;
+    height: 26vh;
+  }
 </style>

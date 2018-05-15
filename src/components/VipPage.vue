@@ -1,7 +1,9 @@
 <template>
   <div>
     <div id="div" v-if="Vip">
-    <div class="show-img"></div>
+    <div class="show-img">
+      <img>
+    </div>
       <div class="box-div">
         <div class="div" id="div1" @click="AddCar">
           <p class="lable">车辆添加</p> 
@@ -19,9 +21,9 @@
         </div> -->
       </div>
     </div>
-    <div id="divVip" v-if="!Vip">
+    <!-- <div id="divVip" v-if="!Vip">
       <mt-button type="primary" size="large" style="position: absolute;bottom: 0" @click="AddVip">立即充值</mt-button>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -101,28 +103,21 @@
       }
     },
     mounted () {
+      this.commom_getImg('/hyfw.png');
       // this.getUser();
     },
     watch: {}
   }
 </script>
 <style scoped>
-  .show-img {
-    width: 100%;
-    height: 28vh;
-    background: url("../assets/hyfw.png") no-repeat;
-    background-size: 100% 100%;
-    transform: scalex(1.12);
-
-  }
-  #divVip{
+  /* #divVip{
     width: 100%;
     height: 100%;
     position: absolute;
     overflow: hidden;
     background-image: url("../assets/vip.jpg");
     background-size: 100% 100%;
-  }
+  } */
   .box-div{
     height: 100%;
     transform: translateY(35%);

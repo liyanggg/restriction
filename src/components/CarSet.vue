@@ -1,29 +1,20 @@
 <template>
   <div id="div" style="min-height: 568px;">
-    <!--<router-link to="/VipPage" slot="left">-->
-      <!--<mt-button icon="back">返回</mt-button>-->
-    <!--</router-link>-->
-
     <!--<div id="id_keyboard_province" style="display:none;">-->
     <!--</div>-->
-    <div class="show-img"></div>
+    <div class="show-img">
+      <img>
+    </div>
     <div class="set-num-desc">
       <p>示例： 川A75B90</p>
     </div>
     <self-keyboard :pAddNum="addNum" :pRemoveNum="removeDomain" :pUsers="users"></self-keyboard>
-    <!-- <div style="margin:30% auto;width: 64%">
-      <mt-button type="primary" size="large" @click.native="addDomain">添加更多</mt-button>
-    </div> -->
-    <!-- <div style="width: 80%;margin: 0 auto">
-      <mt-button v-if="status" type="danger" size="large" @click.native="submitCar">确 认</mt-button>
-    </div> -->
   </div>
 </template>
 <script>
   import MtButton from "../../node_modules/mint-ui/packages/button/src/button";
   import selfKeyboard from "./keyboard";
-  import {MessageBox} from 'mint-ui';
-  import { Toast } from 'mint-ui';
+  import {MessageBox, Toast} from 'mint-ui';
   export default {
     components: {MtButton, selfKeyboard},
     data () {
@@ -175,6 +166,7 @@
       }
     },
     mounted () {
+      this.commom_getImg('/clsz.jpg');
       this.inquire();
     },
     watch: {}
@@ -191,13 +183,6 @@
     color: #888;
     padding: 0 10px;
     background: white;
-  } 
-  .show-img {
-    width: 100%;
-    height: 28vh;
-    background: url("../assets/clsz.png") no-repeat;
-    background-size: 100% 100%;
   }
-
 </style>
 

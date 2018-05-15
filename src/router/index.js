@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import RestrictionInquire from '@/components/RestrictionInquire'
-import CarSet from '@/components/CarSet'
-import VipPage from '@/components/VipPage'
-import RemindPage from '@/components/RemindPage'
-import ChangePhone from '@/components/ChangePhone'
-import keyboard from '@/components/keyboard'
+
+const CarSet = () => import('@/components/CarSet')
+const keyboard = () => import('@/components/keyboard')
+const RestrictionInquire = () => import('@/components/RestrictionInquire')
+const VipPage = () => import('@/components/VipPage')
+const RemindPage = () => import('@/components/RemindPage')
+const ChangePhone = () => import('@/components/ChangePhone')
 
 Vue.use(Router)
 

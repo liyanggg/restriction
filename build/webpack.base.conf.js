@@ -1,5 +1,6 @@
 'use strict'
-const webpack = require('webpack');
+var webpack=require('webpack')
+const uglify = require('uglifyjs-webpack-plugin');
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -8,8 +9,6 @@ const vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -22,7 +21,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   plugins: [
-		// new webpack.optimize.UglifyJsPlugin(),
+    new uglify(),
     new webpack.ProvidePlugin({
       $:"jquery",
       jQuery:"jquery",
@@ -35,6 +34,12 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
+  },
+  externals: {
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'jquery': 'jQuery',
+    'axios': 'axios'
   },
   module: {
     rules: [

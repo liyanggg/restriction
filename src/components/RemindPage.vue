@@ -3,7 +3,7 @@
     <div v-if="popupVisible" class="pop-box">
       <div id="popUp">
         <div style="height: 32px"><img id="img" src="../assets/off.svg" alt=""
-                                      @click="cancleRemind" style="margin: 5px"></div>
+          @click="cancleRemind" style="margin: 5px"></div>
         <div style="padding: 10px">
           <div style="width: 60%;float: left">
             <input placeholder="请输入图形验证码" v-model="imgCode" style="height: 30px;width: 100%"/>
@@ -339,14 +339,6 @@
   .mint-checkbox-label{
     font-size: 18px;
   }
-  .mint-radiolist-label {
-    font-size: 12px;
-    padding: 10px 1px;
-  }
-
-  .mint-radio-label {
-    margin-left: 2px;
-  }
 
   .mint-cell-wrapper {
     background-image: none;
@@ -357,11 +349,6 @@
 
   .mint-cell:last-child {
     background-image: none;
-  }
-
-  .mint-button {
-    font-size: 16px;
-    height: 30px;
   }
 
   .picker-slot {

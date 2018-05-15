@@ -1,7 +1,9 @@
 <template>
 <div id="div" style="height:100vh;background-color:#fff5e9">
-  <div class="show-img"></div>  
-  <table style="margin: 25px 0;">
+    <div class="show-img">
+      <img>
+    </div>
+    <table style="margin: 25px 0;">
     <caption>今日<span style="color: red;">({{form.date}})</span><span>限行情况</span></caption>
     <tr>
       <td>限行车牌</td>
@@ -49,7 +51,6 @@
         methods: {
           inquire(){
             this.$get(`/user/limitInfo/${this.common_getCookie('openId')}`).then(res=>{
-              console.log(res);
               this.form.tln = res.data.data.tln;
               this.form.carNumber = res.data.data.carNumber;
               this.form.date = res.data.data.date;
@@ -60,6 +61,7 @@
           }
         },
         mounted () {
+          this.commom_getImg('/inqBg.png');
           this.inquire();
         },
         watch: {}
@@ -89,11 +91,6 @@
     border-bottom: white 1px solid;
     text-align: left;  
   }
-  .show-img {
-    width: 100%;
-    height: 28vh;
-    background: url("../assets/inqBg.png") no-repeat;
-    background-size: 100% 100%;
-  }
+
 </style>
 
