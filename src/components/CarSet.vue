@@ -12,11 +12,10 @@
   </div>
 </template>
 <script>
-  import MtButton from "../../node_modules/mint-ui/packages/button/src/button";
   import selfKeyboard from "./keyboard";
-  import {MessageBox, Toast} from 'mint-ui';
+  import {MessageBox, Toast, Button} from 'mint-ui';
   export default {
-    components: {MtButton, selfKeyboard},
+    components: {Button, selfKeyboard},
     data () {
       return {
         users: [{
@@ -24,7 +23,6 @@
           openId: ''
         }],
         MaxNum:0,
-        disabled:false,
         pass:true,
       }
     },
@@ -151,14 +149,12 @@
         this.$get(`/user/carNumber/list/${this.common_getCookie('openId')}`).then(res=>{
           this.MaxNum = res.data.data.max;
           if(res.data.data.now === 0){
-            this.disabled = false;
             this.users = [{
               carNumber: '',
               openId: ''
             }];
             return;
           }
-          this.disabled = true;
           this.users = res.data.data.carNumbers;
           this.showNum();
           

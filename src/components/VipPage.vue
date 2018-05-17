@@ -27,8 +27,7 @@
   </div>
 </template>
 <script>
-  import {MessageBox} from 'mint-ui';
-  import { Toast } from 'mint-ui';
+  import {MessageBox, Toast} from 'mint-ui';
   export default {
     data () {
       return {
@@ -102,9 +101,24 @@
         }
       }
     },
+    created () {
+
+    },
     mounted () {
-      this.commom_getImg('/hyfw.png');
       // this.getUser();
+      this.$get(`/user/carNumber/list/${this.common_getCookie('openId')}`).then(res=>{
+        if(res.data.data.now === 0){
+          console.log('1243');
+          Toast({
+              message: '请先绑定车牌号码',
+              position: 'top',
+              duration: 3000
+            });
+          this.$router.push('/CarSet');
+        } else {
+          this.commom_getImg('/hyfw.png');
+        }
+      })
     },
     watch: {}
   }

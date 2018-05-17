@@ -43,8 +43,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    // assetsPublicPath: '/beijing/', // prod环境转发....！！！！！！
-    assetsPublicPath: '/',
+    assetsPublicPath: '/beijing/', // prod环境转发....！！！！！！
+    // assetsPublicPath: '/',
 
     /**
      * Source Maps

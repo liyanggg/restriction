@@ -35,6 +35,7 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  // key:library, val:glabalName
   externals: {
     'vue': 'Vue',
     'vue-router': 'VueRouter',

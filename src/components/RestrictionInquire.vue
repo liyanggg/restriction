@@ -34,39 +34,57 @@
 </div>
 </template>
 <script>
-  import MtHeader from "../../node_modules/mint-ui/packages/header/src/header";
-    export default {
-      components: {MtHeader},
-      data () {
-            return {
-              form:{
-                carNumber:'',
-                date:'',
-                limitArea:'',
-                limitNumber:'',
-                limitTime:''
-              }
-            }
-        },
-        methods: {
-          inquire(){
-            this.$get(`/user/limitInfo/${this.common_getCookie('openId')}`).then(res=>{
-              this.form.tln = res.data.data.tln;
-              this.form.carNumber = res.data.data.carNumber;
-              this.form.date = res.data.data.date;
-              this.form.limitArea = res.data.data.limitArea;
-              this.form.limitNumber = res.data.data.limitNumber;
-              this.form.limitTime = res.data.data.limitTime;
-            })
-          }
-        },
-        mounted () {
-          this.commom_getImg('/inqBg.png');
+  import {Header, Toast} from 'mint-ui';
+  export default {
+    components: {Header},
+    data () {
+      return {
+        form:{
+          carNumber:'',
+          date:'',
+          limitArea:'',
+          limitNumber:'',
+          limitTime:''
+        }
+      }
+    },
+    methods: {
+      inquire(){
+        this.$get(`/user/limitInfo/${this.common_getCookie('openId')}`).then(res=>{
+          this.form.tln = res.data.data.tln;
+          this.form.carNumber = res.data.data.carNumber;
+          this.form.date = res.data.data.date;
+          this.form.limitArea = res.data.data.limitArea;
+          this.form.limitNumber = res.data.data.limitNumber;
+          this.form.limitTime = res.data.data.limitTime;
+        })
+      }
+    },
+    created () {
+
+    },
+    mounted () {
+      
+      this.$get(`/user/carNumber/list/${this.common_getCookie('openId')}`).then(res=>{
+        if(res.data.data.now == 0){
+            Toast({
+                message: '请先绑定车牌号码',
+                position: 'top',
+                duration: 3000
+              });
+            this.$router.push('/CarSet');
+        } else {
           this.inquire();
-        },
-        watch: {}
-    }
+          this.commom_getImg('/inqBg.png');
+        }
+      })
+      
+    },
+    watch: {}
+  }
+
 </script>
+
 <style scoped>
   table caption{
     text-align: left;

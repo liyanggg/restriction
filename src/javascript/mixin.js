@@ -3,8 +3,8 @@
  */
 // const baseUrl = 'http://47.104.193.10:80';
 // const baseUrl = 'http://192.168.0.119:10020';
-// const baseUrl = 'http://www.zcheng2115.com/beijing';
-const baseUrl = 'http://www.zcheng2115.com';
+const baseUrl = 'http://www.zcheng2115.com/beijing';
+// const baseUrl = 'http://www.zcheng2115.com';
 // 请求地址
 export default {
   methods: {

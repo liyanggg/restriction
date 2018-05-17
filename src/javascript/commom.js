@@ -1,5 +1,5 @@
-// const host = 'http://www.zcheng2115.com/beijing/static/img';
-const host = 'http://www.zcheng2115.com/static/img';
+const host = 'http://www.zcheng2115.com/beijing/static/img';
+// const host = 'http://www.zcheng2115.com/static/img';
 
 export default{
     methods: {
@@ -7,10 +7,10 @@ export default{
             let strCookie = document.cookie;
             let arrCookie = strCookie.split("; ");
             for (let i = 0; i < arrCookie.length; i++) {
-              let arr = arrCookie[i].split("=");
-              if (cookieName == arr[0]) {
+                let arr = arrCookie[i].split("=");
+                if (cookieName == arr[0]) {
                 return arr[1];
-              }
+                }
             }
             return "";
         //    return "o9b1k0TcAPec3IR8rzV2zGo3Vh8w"; 
